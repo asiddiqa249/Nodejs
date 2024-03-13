@@ -5,7 +5,7 @@ http
   .createServer((req, res) => {
     let parsedUrl = url.parse(req.url);
     if (parsedUrl.pathname == "/register" && req.method == "GET") {
-      fs.appendFile("./index.html", "<h1>hello World</h1>", (err) => {
+      fs.writeFile("./index.txt", "<h1>hello World</h1>", (err) => {
         if (err) {
           res.write(err);
           res.end();
