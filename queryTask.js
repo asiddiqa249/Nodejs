@@ -16,15 +16,15 @@ http
         object[key] = value;
       });
       console.log("object log", object);
-      let parseObj = JSON.stringify(object);
-      console.log("parsed object", parseObj);
+      // let parseObj = JSON.stringify(object);
+      // console.log("parsed object", parseObj);
       // console.log(parseUrl.query);
-      fs.writeFile("./index.txt", parseObj, (err, data = parseObj) => {
+      fs.writeFile("./index.json", JSON.stringify(object), (err) => {
         if (err) {
           res.write(err);
           res.end();
         } else {
-          res.write(data);
+          res.write("Data visible");
           res.end();
         }
       });
@@ -32,7 +32,7 @@ http
       let queryParameter = parseUrl.search;
       console.log(queryParameter);
       fs.writeFile(
-        "./index1.txt",
+        "./index.txt",
         queryParameter,
         (err, data = queryParameter) => {
           if (err) {
